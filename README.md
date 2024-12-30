@@ -4,7 +4,7 @@
 This script applies super-resolution to videos using a pre-trained model from TensorFlow Hub. It enhances the quality of the input video by upscaling each frame using a super-resolution model and outputs the processed video.
 
 ## Features
-- Supports super-resolution using the ESRGAN model.
+- Supports super-resolution using the GFPGAN/ESRGAN model.
 - Processes input videos frame by frame.
 - Maintains the original audio from the input video.
 - Outputs a high-quality video with enhanced resolution.
@@ -18,7 +18,7 @@ python super_resolution.py --superres GFPGAN -iv input_video.mp4 -ia input.mp3 -
 
 ### Arguments:
 - `--superres`: The super-resolution model to use (e.g., `GFPGAN`).
-- `input_video.mp4`: Path to the input video.
+- `-iv input_video.mp4`: Path to the input video.
 - `-ia input.mp3`: Path to the input audio (will be kept intact in the output).
 - `-o output.mp4`: Path for the output video with enhanced resolution.
 

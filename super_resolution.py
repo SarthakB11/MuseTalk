@@ -37,13 +37,13 @@ def process_video(input_video_path, output_video_path):
 def main():
     parser = argparse.ArgumentParser(description="Apply super resolution on video using TF Hub model.")
     parser.add_argument('--superres', type=str, required=True, help="Super resolution model (e.g., GFPGAN-iv).")
-    parser.add_argument('input_video', type=str, help="Input video file path.")
+    parser.add_argument('-iv', '--input_video', type=str, help="Input video file path.")
     parser.add_argument('-ia', '--input_audio', type=str, required=True, help="Input audio file path.")
     parser.add_argument('-o', '--output_video', type=str, required=True, help="Output video file path.")
     
     args = parser.parse_args()
 
-    if args.superres != "GFPGAN-iv":
+    if args.superres != "GFPGAN":
         print(f"Unsupported super resolution model: {args.superres}")
         return
 

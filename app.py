@@ -29,6 +29,7 @@ import imageio
 import ffmpeg
 from moviepy.editor import *
 
+from super_resolution import process_video
 
 ProjectDir = os.path.abspath(os.path.dirname(__file__))
 CheckpointsDir = os.path.join(ProjectDir, "models")
@@ -249,7 +250,9 @@ def inference(audio_path,video_path,bbox_shift,progress=gr.Progress(track_tqdm=T
 
     # 保存视频
     imageio.mimwrite(output_video, images, 'FFMPEG', fps=fps, codec='libx264', pixelformat='yuv420p')
-
+    super_res_video_path = "super_res_output.mp4"
+    process_video(output_video, super_res_video_path)
+    output_video=super_res_video_path
     # cmd_combine_audio = f"ffmpeg -y -v fatal -i {audio_path} -i temp.mp4 {output_vid_name}"
     # print(cmd_combine_audio)
     # os.system(cmd_combine_audio)
